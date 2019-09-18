@@ -28,7 +28,7 @@ public class mainScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        addScoreHome = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -37,7 +37,12 @@ public class mainScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Add Score");
+        addScoreHome.setText("Add Score");
+        addScoreHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addScoreHomeActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Home Screen");
 
@@ -49,7 +54,7 @@ public class mainScreen extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(97, 97, 97)
-                .addComponent(jButton1)
+                .addComponent(addScoreHome)
                 .addGap(14, 14, 14))
         );
         jPanel1Layout.setVerticalGroup(
@@ -57,7 +62,7 @@ public class mainScreen extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 6, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(addScoreHome)
                     .addComponent(jLabel1)))
         );
 
@@ -125,6 +130,10 @@ public class mainScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void addScoreHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addScoreHomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addScoreHomeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -161,7 +170,7 @@ public class mainScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton addScoreHome;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

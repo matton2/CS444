@@ -30,10 +30,12 @@ public class createUpdateDeleteScore extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        cancelAdd = new javax.swing.JButton();
+        deleteAdd = new javax.swing.JButton();
+        updateAdd = new javax.swing.JButton();
+        submitAdd = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        enterCourseName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,17 +79,48 @@ public class createUpdateDeleteScore extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                jTable1InputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setText("Round Score");
 
-        jButton1.setText("Cancel");
+        cancelAdd.setText("Cancel");
+        cancelAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelAddActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Delete");
+        deleteAdd.setText("Delete");
+        deleteAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteAddActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Update");
+        updateAdd.setText("Update");
+        updateAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateAddActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Submit");
+        submitAdd.setText("Submit");
+        submitAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitAddActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Course Name");
+
+        enterCourseName.setText("jTextField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,39 +130,69 @@ public class createUpdateDeleteScore extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton4)
+                        .addComponent(submitAdd)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3)
+                        .addComponent(updateAdd)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(deleteAdd)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                        .addComponent(cancelAdd)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(190, 190, 190))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(enterCourseName, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(jLabel2)
+                    .addComponent(enterCourseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancelAdd)
+                    .addComponent(deleteAdd)
+                    .addComponent(updateAdd)
+                    .addComponent(submitAdd))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTable1InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jTable1InputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1InputMethodTextChanged
+
+    private void submitAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_submitAddActionPerformed
+
+    private void updateAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateAddActionPerformed
+
+    private void deleteAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteAddActionPerformed
+
+    private void cancelAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancelAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,12 +230,14 @@ public class createUpdateDeleteScore extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton cancelAdd;
+    private javax.swing.JButton deleteAdd;
+    private javax.swing.JTextField enterCourseName;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton submitAdd;
+    private javax.swing.JButton updateAdd;
     // End of variables declaration//GEN-END:variables
 }
