@@ -27,7 +27,7 @@ public class createAccount extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        usernameCreate = new javax.swing.JTextField();
+        firstnameCreate = new javax.swing.JTextField();
         emailCreate = new javax.swing.JTextField();
         passwordCreate = new javax.swing.JPasswordField();
         password2Create = new javax.swing.JPasswordField();
@@ -37,23 +37,27 @@ public class createAccount extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         submitCreate = new javax.swing.JButton();
         cancelCreate = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        lastnameCreate1 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        usernameCreate = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        usernameCreate.setText("jTextField1");
-        usernameCreate.addActionListener(new java.awt.event.ActionListener() {
+        firstnameCreate.setText("Enter First Name");
+        firstnameCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameCreateActionPerformed(evt);
+                firstnameCreateActionPerformed(evt);
             }
         });
 
-        emailCreate.setText("jTextField2");
+        emailCreate.setText("Enter Email");
 
         passwordCreate.setText("jPasswordField1");
 
         password2Create.setText("jPasswordField2");
 
-        jLabel1.setText("Username");
+        jLabel1.setText("First Name");
 
         jLabel2.setText("email ");
 
@@ -75,6 +79,24 @@ public class createAccount extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("Last Name");
+
+        lastnameCreate1.setText("Enter Last Name");
+        lastnameCreate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lastnameCreate1ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Username");
+
+        usernameCreate.setText("Enter Username");
+        usernameCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameCreateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,9 +107,17 @@ public class createAccount extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(usernameCreate)
+                        .addGap(12, 12, 12))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lastnameCreate1)
+                        .addGap(12, 12, 12))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cancelCreate)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
@@ -95,7 +125,7 @@ public class createAccount extends javax.swing.JFrame {
                         .addGap(37, 37, 37))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(usernameCreate)
+                            .addComponent(firstnameCreate)
                             .addComponent(emailCreate)
                             .addComponent(passwordCreate, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
                             .addComponent(password2Create))
@@ -104,23 +134,34 @@ public class createAccount extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(usernameCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addComponent(firstnameCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(lastnameCreate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(usernameCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(password2Create, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(passwordCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(password2Create, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitCreate)
                     .addComponent(cancelCreate))
@@ -130,9 +171,9 @@ public class createAccount extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usernameCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameCreateActionPerformed
+    private void firstnameCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnameCreateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_usernameCreateActionPerformed
+    }//GEN-LAST:event_firstnameCreateActionPerformed
 
     private void submitCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitCreateActionPerformed
         // TODO add your handling code here:
@@ -141,6 +182,14 @@ public class createAccount extends javax.swing.JFrame {
     private void cancelCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelCreateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelCreateActionPerformed
+
+    private void lastnameCreate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastnameCreate1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastnameCreate1ActionPerformed
+
+    private void usernameCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameCreateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameCreateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,10 +229,14 @@ public class createAccount extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelCreate;
     private javax.swing.JTextField emailCreate;
+    private javax.swing.JTextField firstnameCreate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JTextField lastnameCreate1;
     private javax.swing.JPasswordField password2Create;
     private javax.swing.JPasswordField passwordCreate;
     private javax.swing.JButton submitCreate;
