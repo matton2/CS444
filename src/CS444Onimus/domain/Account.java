@@ -5,6 +5,8 @@
  */
 package CS444Onimus.domain;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author matt
@@ -15,6 +17,8 @@ public class Account {
     private String lastName = "";
     private Login login = null;
     private String email = "";
+    private int Id = 0;
+    
 
     /**
      * @return the email
@@ -89,6 +93,20 @@ public class Account {
         return true;
         
         
+    }
+
+    /**
+     * @return the iD
+     */
+    public int getId() {
+        return Id;
+    }
+
+    /**
+     * @param Id the Id to set
+     */
+    public void setId(int Id) {
+        this.Id = Id;
     }
     
 }

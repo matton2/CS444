@@ -18,7 +18,7 @@ public class AccountTest {
     }
 
     @Test
-    public void testSomeMethod() {
+    public void testValidate() {
         Account account = new Account();
         boolean result = account.validate();
         assertFalse(result);
