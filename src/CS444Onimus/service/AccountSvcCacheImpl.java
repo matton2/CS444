@@ -28,10 +28,24 @@ public class AccountSvcCacheImpl implements IAccountSvc {
     }
     
     public Account update (Account account) {
+        for (int i=0; i < cache.size(); i++) {
+            Account next = cache.get(i);
+            if(next.getId() == account.getId()) {
+                cache.set(i, account);
+                break;
+            }
+        }
         return account;
     }
     
     public Account delete (Account account) {
+        for (int i = 0; i < cache.size (); i++) {
+            Account next = cache.get(i);
+            if(next.getId() == account.getId()) {
+                cache.remove(i);
+                break;
+            }
+    }
         return account;
     }
 }
