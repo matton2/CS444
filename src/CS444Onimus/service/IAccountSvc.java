@@ -18,5 +18,6 @@ public interface IAccountSvc {
     public List<Account> retrieveAll();
     public Account update(Account account);
     public Account delete(Account account);
+    public Account authenticate(Login login);
     
 }

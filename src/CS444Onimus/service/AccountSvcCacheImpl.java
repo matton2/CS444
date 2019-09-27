@@ -14,6 +14,16 @@ import java.util.*;
  */
 public class AccountSvcCacheImpl implements IAccountSvc {
     
+    private AccountSvcCacheImpl() {
+        
+    }
+    
+    private static AccountSvcCacheImpl instance = new AccountSvcCacheImpl();
+    
+    public static AccountSvcCacheImpl getInstance() {
+        return instance;
+    }
+    
     private List<Account> cache = new ArrayList<>();
     private int nextId = 0;
     
@@ -47,5 +57,15 @@ public class AccountSvcCacheImpl implements IAccountSvc {
             }
     }
         return account;
+    }
+    
+    public Account authenticate(Login login) {
+        Account account = null;
+        for (int i = 0; i < cache.size(); i++) {
+            account = cache.get(i);
+            Login accountLogin = account.getLogin();
+            if(login.equals(accountLogin)) return account;
+        }
+        return null;
     }
 }

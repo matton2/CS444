@@ -55,6 +55,20 @@ public class Login {
         
     }
     
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        
+        if (!(obj instanceof Login)) return false;
+        
+        Login login = (Login)obj;
+        
+        if (!this.username.equals(login.getUsername())) return false;
+        if (!this.password.equals(login.getPassword())) return false;
+        
+        return true;
+    }
+    
     
     
     

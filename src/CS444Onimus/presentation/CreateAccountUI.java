@@ -5,16 +5,20 @@
  */
 package CS444Onimus.presentation;
 
+import CS444Onimus.domain.*;
+import CS444Onimus.service.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author matt
  */
-public class createAccount extends javax.swing.JFrame {
+public class CreateAccountUI extends javax.swing.JFrame {
 
     /**
      * Creates new form createAccount
      */
-    public createAccount() {
+    public CreateAccountUI() {
         initComponents();
     }
 
@@ -38,24 +42,11 @@ public class createAccount extends javax.swing.JFrame {
         submitCreate = new javax.swing.JButton();
         cancelCreate = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        lastnameCreate1 = new javax.swing.JTextField();
+        lastnameCreate = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         usernameCreate = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        firstnameCreate.setText("Enter First Name");
-        firstnameCreate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstnameCreateActionPerformed(evt);
-            }
-        });
-
-        emailCreate.setText("Enter Email");
-
-        passwordCreate.setText("jPasswordField1");
-
-        password2Create.setText("jPasswordField2");
 
         jLabel1.setText("First Name");
 
@@ -81,21 +72,7 @@ public class createAccount extends javax.swing.JFrame {
 
         jLabel5.setText("Last Name");
 
-        lastnameCreate1.setText("Enter Last Name");
-        lastnameCreate1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastnameCreate1ActionPerformed(evt);
-            }
-        });
-
         jLabel6.setText("Username");
-
-        usernameCreate.setText("Enter Username");
-        usernameCreate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameCreateActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,7 +93,7 @@ public class createAccount extends javax.swing.JFrame {
                         .addComponent(usernameCreate)
                         .addGap(12, 12, 12))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lastnameCreate1)
+                        .addComponent(lastnameCreate)
                         .addGap(12, 12, 12))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cancelCreate)
@@ -141,7 +118,7 @@ public class createAccount extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(lastnameCreate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lastnameCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -171,25 +148,64 @@ public class createAccount extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void firstnameCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnameCreateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_firstnameCreateActionPerformed
-
     private void submitCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitCreateActionPerformed
-        // TODO add your handling code here:
+        Login login = new Login();
+        
+        login.setUsername(usernameCreate.getText());
+        login.setPassword(new String(passwordCreate.getPassword()));
+        if (!login.validate()) {
+            JOptionPane.showMessageDialog(this, "Must supply a username and password", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if(login.getPassword().length() > 6) {
+            JOptionPane.showMessageDialog(this, "Password must be atleast 6 characters", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        String confirmPassword = new String(password2Create.getText());
+        if(!confirmPassword.equals(login.getPassword())) {
+            JOptionPane.showMessageDialog(this, "Passwords don't match; try again", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        Account account = new Account();
+        
+        
+        account.setFirstName(firstnameCreate.getText());
+        account.setLastName(lastnameCreate.getText());
+        account.setEmail(emailCreate.getText());
+        
+        if(!account.getEmail().contains("@")) {
+            JOptionPane.showMessageDialog(this, "Email must contain @", "Error", 
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        
+        account.setLogin(login);
+        boolean isValid = account.validate();
+        if(!isValid) {
+            JOptionPane.showMessageDialog(this, "Must supply first and last names", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        } else {
+            AccountSvcCacheImpl impl = AccountSvcCacheImpl.getInstance();
+            
+            account = impl.create(account);
+            JOptionPane.showMessageDialog(this, "Congratulation, your account has been created",
+                    "Account created", JOptionPane.INFORMATION_MESSAGE);
+            this.setVisible(false);
+            LoginUI loginUI = new LoginUI();
+            loginUI.setVisible(true);
+        }
+        
+        
     }//GEN-LAST:event_submitCreateActionPerformed
 
     private void cancelCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelCreateActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_cancelCreateActionPerformed
-
-    private void lastnameCreate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastnameCreate1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lastnameCreate1ActionPerformed
-
-    private void usernameCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameCreateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usernameCreateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,20 +224,21 @@ public class createAccount extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(createAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateAccountUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(createAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateAccountUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(createAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateAccountUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(createAccount.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateAccountUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new createAccount().setVisible(true);
+                new CreateAccountUI().setVisible(true);
             }
         });
     }
@@ -236,7 +253,7 @@ public class createAccount extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField lastnameCreate1;
+    private javax.swing.JTextField lastnameCreate;
     private javax.swing.JPasswordField password2Create;
     private javax.swing.JPasswordField passwordCreate;
     private javax.swing.JButton submitCreate;

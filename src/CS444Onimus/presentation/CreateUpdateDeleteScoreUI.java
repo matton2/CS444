@@ -9,12 +9,12 @@ package CS444Onimus.presentation;
  *
  * @author matt
  */
-public class createUpdateDeleteScore extends javax.swing.JFrame {
+public class CreateUpdateDeleteScoreUI extends javax.swing.JFrame {
 
     /**
      * Creates new form createUpdateDeleteScore
      */
-    public createUpdateDeleteScore() {
+    public CreateUpdateDeleteScoreUI() {
         initComponents();
     }
 
@@ -211,20 +211,21 @@ public class createUpdateDeleteScore extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(createUpdateDeleteScore.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateUpdateDeleteScoreUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(createUpdateDeleteScore.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateUpdateDeleteScoreUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(createUpdateDeleteScore.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateUpdateDeleteScoreUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(createUpdateDeleteScore.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateUpdateDeleteScoreUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new createUpdateDeleteScore().setVisible(true);
+                new CreateUpdateDeleteScoreUI().setVisible(true);
             }
         });
     }

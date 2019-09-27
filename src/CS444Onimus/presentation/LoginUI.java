@@ -5,6 +5,10 @@
  */
 package CS444Onimus.presentation;
 
+import CS444Onimus.domain.*;
+import CS444Onimus.service.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author matt
@@ -33,24 +37,9 @@ public class LoginUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         submitLogin = new javax.swing.JButton();
         cancelLogin = new javax.swing.JButton();
+        createAccountLogIn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        usernameLogin.setText("jTextField1");
-        usernameLogin.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                usernameLoginInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-        });
-
-        passwordLogin.setText("jPasswordField1");
-        passwordLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordLoginActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("Username");
 
@@ -70,6 +59,13 @@ public class LoginUI extends javax.swing.JFrame {
             }
         });
 
+        createAccountLogIn.setText("Create Account");
+        createAccountLogIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createAccountLogInActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -77,19 +73,22 @@ public class LoginUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(usernameLogin)
-                    .addComponent(passwordLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cancelLogin)
-                .addGap(40, 40, 40)
-                .addComponent(submitLogin)
-                .addGap(26, 26, 26))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(createAccountLogIn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                        .addComponent(cancelLogin)
+                        .addGap(40, 40, 40)
+                        .addComponent(submitLogin)
+                        .addGap(26, 26, 26))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(57, 57, 57)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(usernameLogin)
+                            .addComponent(passwordLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,28 +104,48 @@ public class LoginUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitLogin)
-                    .addComponent(cancelLogin))
+                    .addComponent(cancelLogin)
+                    .addComponent(createAccountLogIn))
                 .addGap(66, 66, 66))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usernameLoginInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_usernameLoginInputMethodTextChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usernameLoginInputMethodTextChanged
-
     private void submitLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitLoginActionPerformed
-        // TODO add your handling code here:
+        Login login = new Login();
+        login.setUsername(usernameLogin.getText());
+        login.setPassword(new String(passwordLogin.getPassword()));
+        if(!login.validate()){
+            JOptionPane.showMessageDialog(this, "Must Supply a username and password", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        IAccountSvc impl = AccountSvcCacheImpl.getInstance();
+        Account account = impl.authenticate(login);
+        if(account == null) {
+            JOptionPane.showMessageDialog(this, "The username/password is not valid, try again", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        } else {
+            this.setVisible(false);
+            MainScreenUI mainscreenUI = new MainScreenUI();
+            mainscreenUI.setVisible(true);
+        }
+        
+        
     }//GEN-LAST:event_submitLoginActionPerformed
 
     private void cancelLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelLoginActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_cancelLoginActionPerformed
 
-    private void passwordLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordLoginActionPerformed
+    private void createAccountLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountLogInActionPerformed
+        this.setVisible(false);
+        CreateAccountUI createAccountUI = new CreateAccountUI();
+        createAccountUI.setVisible(true);
+    }//GEN-LAST:event_createAccountLogInActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,6 +184,7 @@ public class LoginUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelLogin;
+    private javax.swing.JButton createAccountLogIn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField passwordLogin;

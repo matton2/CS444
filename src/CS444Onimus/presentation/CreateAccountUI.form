@@ -40,7 +40,7 @@
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="lastnameCreate1" max="32767" attributes="0"/>
+                      <Component id="lastnameCreate" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -73,7 +73,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lastnameCreate1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lastnameCreate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -112,27 +112,12 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JTextField" name="firstnameCreate">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Enter First Name"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstnameCreateActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="emailCreate">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Enter Email"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="passwordCreate">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="password2Create">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField2"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -175,13 +160,7 @@
         <Property name="text" type="java.lang.String" value="Last Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="lastnameCreate1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Enter Last Name"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lastnameCreate1ActionPerformed"/>
-      </Events>
+    <Component class="javax.swing.JTextField" name="lastnameCreate">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
@@ -189,12 +168,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="usernameCreate">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Enter Username"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="usernameCreateActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

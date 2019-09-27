@@ -43,4 +43,21 @@ public class loginTest {
  
     }
     
+    @Test
+    public void testEquals() {
+        Login login1 = new Login();
+        login1.setUsername("johndoe");
+        login1.setPassword("123456");
+        
+        Login login2 = new Login();
+        login2.setUsername("somethingelse");
+        login2.setPassword("154684");
+        
+        assertFalse(login1.equals(login2));
+        login2.setUsername("johndoe");
+        assertFalse(login1.equals(login2));
+        login2.setPassword("123456");
+        assertTrue(login1.equals(login2));
+    }
+    
 }
