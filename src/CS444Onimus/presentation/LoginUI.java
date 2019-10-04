@@ -131,6 +131,7 @@ public class LoginUI extends javax.swing.JFrame {
         } else {
             this.setVisible(false);
             MainScreenUI mainscreenUI = new MainScreenUI();
+            mainscreenUI.setAccount(account);
             mainscreenUI.setVisible(true);
         }
         

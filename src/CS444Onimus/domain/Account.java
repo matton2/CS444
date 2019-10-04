@@ -5,13 +5,24 @@
  */
 package CS444Onimus.domain;
 
-import java.util.ArrayList;
+import CS444Onimus.service.AccountSvcCacheImpl;
+import java.util.*;
 
 /**
  *
  * @author matt
  */
 public class Account {
+    
+    private List<Round> rounds = new LinkedList<Round>();
+    private int nextId = 0;
+    
+    public Round add(Round round) {
+        round.setId(nextId++);
+        rounds.add(round);
+        return round;
+    }
+    
     
     private String firstName = "";
     private String lastName = "";

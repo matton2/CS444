@@ -5,11 +5,20 @@
  */
 package CS444Onimus.presentation;
 
+import CS444Onimus.domain.*;
+import CS444Onimus.service.*;
+
 /**
  *
  * @author matt
  */
 public class MainScreenUI extends javax.swing.JFrame {
+    
+    private Account account = null;
+    
+    public void setAccount(Account account) {
+        this.account = account;
+    }
 
     /**
      * Creates new form mainScreen
@@ -131,8 +140,11 @@ public class MainScreenUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void addScoreHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addScoreHomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addScoreHomeActionPerformed
+            this.setVisible(false);
+            CreateUpdateDeleteScoreUI createupdatedeletescoreui = 
+                    new CreateUpdateDeleteScoreUI();
+            createupdatedeletescoreui.setAccount(account);
+            createupdatedeletescoreui.setVisible(true);    }//GEN-LAST:event_addScoreHomeActionPerformed
 
     /**
      * @param args the command line arguments

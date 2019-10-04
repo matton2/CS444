@@ -5,6 +5,8 @@
  */
 package CS444Onimus.domain;
 
+import java.util.*;
+
 /**
  *
  * @author matt
@@ -12,21 +14,23 @@ package CS444Onimus.domain;
 public class Round {
     
     private int hole1Par, hole2Par, hole3Par, hole4Par, hole5Par, hole6Par,
-             hole7Par, hole8Par, hole9Par, hole10Par, hol11Par, hole12Par,
+             hole7Par, hole8Par, hole9Par, hole10Par, hole11Par, hole12Par,
              hole13Par, hole14Par, hole15Par, hole16Par, hole17Par, hole18Par;
     
     private int hole1Score, hole2Score, hole3Score, hole4Score, hole5Score, 
             hole6Score, hole7Score, hole8Score, hole9Score, hole10Score, 
-            hol11Score, hole12Score, hole13Score, hole14Score, hole15Score, 
+            hole11Score, hole12Score, hole13Score, hole14Score, hole15Score, 
             hole16Score, hole17Score, hole18Score;
     
     private int hole1Difference, hole2Difference, hole3Difference, 
             hole4Difference, hole5Difference, hole6Difference, hole7Difference, 
-            hole8Difference, hole9Difference, hole10Difference, hol11Difference,
+            hole8Difference, hole9Difference, hole10Difference, hole11Difference,
             hole12Difference, hole13Difference, hole14Difference, hole15Difference, 
             hole16Difference, hole17Difference, hole18Difference;
     
     private String courseName = "";
+    
+    private int Id;
 
     /**
      * @return the hole1Par
@@ -169,17 +173,17 @@ public class Round {
     }
 
     /**
-     * @return the hol11Par
+     * @return the hole11Par
      */
-    public int getHol11Par() {
-        return hol11Par;
+    public int getHole11Par() {
+        return hole11Par;
     }
 
     /**
-     * @param hol11Par the hol11Par to set
+     * @param hol11Par the hole11Par to set
      */
-    public void setHol11Par(int hol11Par) {
-        this.hol11Par = hol11Par;
+    public void setHole11Par(int hol11Par) {
+        this.hole11Par = hol11Par;
     }
 
     /**
@@ -421,17 +425,17 @@ public class Round {
     }
 
     /**
-     * @return the hol11Score
+     * @return the hole11Score
      */
-    public int getHol11Score() {
-        return hol11Score;
+    public int getHole11Score() {
+        return hole11Score;
     }
 
     /**
-     * @param hol11Score the hol11Score to set
+     * @param hol11Score the hole11Score to set
      */
-    public void setHol11Score(int hol11Score) {
-        this.hol11Score = hol11Score;
+    public void setHole11Score(int hol11Score) {
+        this.hole11Score = hol11Score;
     }
 
     /**
@@ -673,17 +677,17 @@ public class Round {
     }
 
     /**
-     * @return the hol11Difference
+     * @return the hole11Difference
      */
-    public int getHol11Difference() {
-        return hol11Difference;
+    public int getHole11Difference() {
+        return hole11Difference;
     }
 
     /**
-     * @param hol11Difference the hol11Difference to set
+     * @param hol11Difference the hole11Difference to set
      */
-    public void setHol11Difference(int hol11Difference) {
-        this.hol11Difference = hol11Difference;
+    public void setHole11Difference(int hol11Difference) {
+        this.hole11Difference = hol11Difference;
     }
 
     /**
@@ -805,6 +809,24 @@ public class Round {
         return true;
         
         
+    }
+    
+    public int scoreToPar(int par, int score) {
+        return par - score;
+    }
+
+    /**
+     * @return the Id
+     */
+    public int getId() {
+        return Id;
+    }
+
+    /**
+     * @param Id the Id to set
+     */
+    public void setId(int Id) {
+        this.Id = Id;
     }
     
     
