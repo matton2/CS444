@@ -49,7 +49,7 @@ public class AccountSvcCacheImpl implements IAccountSvc {
     }
     
     public Account delete (Account account) {
-        for (int i = 0; i < cache.size (); i++) {
+        for (int i = 0; i < cache.size(); i++) {
             Account next = cache.get(i);
             if(next.getId() == account.getId()) {
                 cache.remove(i);

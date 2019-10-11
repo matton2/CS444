@@ -96,9 +96,7 @@ public class Account {
         
         if (firstName.length() <= 1) return false;
         if (lastName.length() <= 1) return false;
-        
-        if (lastName.equals(firstName)) return false;
-        
+                
         if (!email.contains("@")) return false;
                 
         return true;

@@ -159,8 +159,8 @@ public class CreateAccountUI extends javax.swing.JFrame {
             return;
         }
         
-        if(login.getPassword().length() > 6) {
-            JOptionPane.showMessageDialog(this, "Password must be atleast 6 characters", 
+        if(login.getPassword().length() < 6) {
+            JOptionPane.showMessageDialog(this, "Password must be atleast 6 characters and not 'Password' or 'password'", 
                     "Error", JOptionPane.ERROR_MESSAGE);
         }
         
