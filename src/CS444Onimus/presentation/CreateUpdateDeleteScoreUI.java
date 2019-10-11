@@ -90,13 +90,6 @@ public class CreateUpdateDeleteScoreUI extends javax.swing.JFrame {
             }
         });
         roundTable.getTableHeader().setReorderingAllowed(false);
-        roundTable.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                roundTableInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-        });
         jScrollPane1.setViewportView(roundTable);
 
         jLabel1.setText("Round Score");
@@ -183,10 +176,6 @@ public class CreateUpdateDeleteScoreUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void roundTableInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_roundTableInputMethodTextChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_roundTableInputMethodTextChanged
-
     private void submitAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitAddActionPerformed
         Round round = new Round();
         
@@ -258,7 +247,7 @@ public class CreateUpdateDeleteScoreUI extends javax.swing.JFrame {
         
         if(!isValid) {
             JOptionPane.showMessageDialog(this,
-                    "A course name and all score must be entered","Error",
+                    "A course name and all scores must be entered","Error",
                     JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -271,13 +260,17 @@ public class CreateUpdateDeleteScoreUI extends javax.swing.JFrame {
                     "Your round was not saved, please try again", "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
-        
+                       
         JOptionPane.showMessageDialog(this, "Your new round has been saved");
         
         for(int i = 0;i<=17;i++) {
             roundTable.setValueAt("", i, 1);
             roundTable.setValueAt("", i, 2);
         }
+        this.setVisible(false);
+        MainScreenUI mainscreenUI = new MainScreenUI();
+        mainscreenUI.setAccount(account);
+        mainscreenUI.setVisible(true);
        
         
         

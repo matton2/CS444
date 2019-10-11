@@ -810,10 +810,6 @@ public class Round {
         
         
     }
-    
-    public int scoreToPar(int par, int score) {
-        return par - score;
-    }
 
     /**
      * @return the Id
@@ -827,6 +823,35 @@ public class Round {
      */
     public void setId(int Id) {
         this.Id = Id;
+    }
+    
+    
+    public int getCoursePar() {
+        int par = getHole1Par() + getHole2Par() + getHole3Par() + getHole4Par() +
+                getHole5Par() + getHole6Par() + getHole7Par() + getHole8Par() +
+                getHole9Par() + getHole10Par() + getHole11Par() + getHole12Par() +
+                getHole13Par() + getHole14Par() + getHole15Par() + getHole16Par() +
+                getHole17Par() + getHole18Par();
+        
+        return par;   
+        
+    }
+    
+    public int getScore() {
+        int score = getHole1Score() + getHole2Score() + getHole3Score() + getHole4Score() +
+                getHole5Score() + getHole6Score() + getHole7Score() + getHole8Score() +
+                getHole9Score() + getHole10Score() + getHole11Score() + getHole12Score() +
+                getHole13Score() + getHole14Score() + getHole15Score() + getHole16Score() +
+                getHole17Score() + getHole18Score();
+        
+        return score;   
+        
+    }
+    
+    public int getNetScore() {
+        int netScore = getScore() - getCoursePar();
+        
+        return(netScore);
     }
     
     

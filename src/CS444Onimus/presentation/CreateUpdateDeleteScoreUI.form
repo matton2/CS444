@@ -143,9 +143,6 @@
               <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="roundTableInputMethodTextChanged"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

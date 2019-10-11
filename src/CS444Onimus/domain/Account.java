@@ -5,7 +5,7 @@
  */
 package CS444Onimus.domain;
 
-import CS444Onimus.service.AccountSvcCacheImpl;
+import CS444Onimus.service.*;
 import java.util.*;
 
 /**
@@ -23,6 +23,10 @@ public class Account {
         return round;
     }
     
+    
+    public List<Round> getRounds() {
+        return rounds;
+    }
     
     private String firstName = "";
     private String lastName = "";
