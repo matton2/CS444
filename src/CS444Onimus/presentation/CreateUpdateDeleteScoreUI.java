@@ -179,6 +179,17 @@ public class CreateUpdateDeleteScoreUI extends javax.swing.JFrame {
     private void submitAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitAddActionPerformed
         Round round = new Round();
         
+        //check for missing values and assign 0 if there is one
+        for(int i = 0; i<=17; i++) {
+            if(roundTable.getValueAt(i, 1)== null ) {
+                roundTable.setValueAt(0, i, 1);
+            }
+            if(roundTable.getValueAt(i, 2) == null) {
+                roundTable.setValueAt(0, i, 2);
+            }
+            
+        }
+        
                
         //would have loved to do this in a for loop
         round.setHole1Par((int) roundTable.getValueAt(0, 1));
@@ -242,6 +253,8 @@ public class CreateUpdateDeleteScoreUI extends javax.swing.JFrame {
         
         
         round.setCourseName(enterCourseName.getText());
+        
+
         
         boolean isValid = round.validate();
         
