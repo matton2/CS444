@@ -19,6 +19,8 @@ public class MainScreenUI extends javax.swing.JFrame {
     
     private RoundTableModel model = new RoundTableModel();
     
+    private int selectedRow = -1;
+    
     
     
     public void setAccount(Account account) {
@@ -34,6 +36,25 @@ public class MainScreenUI extends javax.swing.JFrame {
         initComponents();
         
         roundsTbl.setModel(model);
+        
+        roundsTbl.addMouseListener(new java.awt.event.MouseAdapter() {
+        @Override
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            int row = roundsTbl.rowAtPoint(evt.getPoint());
+            if (row >= 0) {
+                System.out.println("*** clicked row: " + row);
+            selectedRow = row;
+            CreateUpdateDeleteScoreUI createupdatedeletescoreui = 
+                    new CreateUpdateDeleteScoreUI();
+            createupdatedeletescoreui.setAccount(account);
+            Round round = account.getRounds().get(selectedRow);
+            createupdatedeletescoreui.setRound(round);
+            createupdatedeletescoreui.populateRound(round);
+            createupdatedeletescoreui.setVisible(true);
+            }
+        }
+    });
+        
     }
 
     /**

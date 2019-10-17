@@ -17,8 +17,78 @@ public class CreateUpdateDeleteScoreUI extends javax.swing.JFrame {
     
     private Account account = null;
     
+    private Round round = null;
+        
     public void setAccount(Account account) {
         this.account = account;
+    }
+    
+    public void setRound(Round round) {
+        this.round = round;
+    }
+    
+    public void populateRound(Round round) {
+        
+        enterCourseName.setText(round.getCourseName());
+        
+        roundTable.setValueAt(round.getHole1Par(), 0, 1);
+        roundTable.setValueAt(round.getHole2Par(), 1, 1);
+        roundTable.setValueAt(round.getHole3Par(), 2, 1);
+        roundTable.setValueAt(round.getHole4Par(), 3, 1);
+        roundTable.setValueAt(round.getHole5Par(), 4, 1);
+        roundTable.setValueAt(round.getHole6Par(), 5, 1);
+        roundTable.setValueAt(round.getHole7Par(), 6, 1);
+        roundTable.setValueAt(round.getHole8Par(), 7, 1);
+        roundTable.setValueAt(round.getHole9Par(), 8, 1);
+        roundTable.setValueAt(round.getHole10Par(), 9, 1);
+        roundTable.setValueAt(round.getHole11Par(), 10, 1);
+        roundTable.setValueAt(round.getHole12Par(), 11, 1);
+        roundTable.setValueAt(round.getHole13Par(), 12, 1);
+        roundTable.setValueAt(round.getHole14Par(), 13, 1);
+        roundTable.setValueAt(round.getHole15Par(), 14, 1);
+        roundTable.setValueAt(round.getHole16Par(), 15, 1);
+        roundTable.setValueAt(round.getHole17Par(), 16, 1);
+        roundTable.setValueAt(round.getHole18Par(), 17, 1);
+        
+        roundTable.setValueAt(round.getHole1Score(), 0, 2);
+        roundTable.setValueAt(round.getHole2Score(), 1, 2);
+        roundTable.setValueAt(round.getHole3Score(), 2, 2);
+        roundTable.setValueAt(round.getHole4Score(), 3, 2);
+        roundTable.setValueAt(round.getHole5Score(), 4, 2);
+        roundTable.setValueAt(round.getHole6Score(), 5, 2);
+        roundTable.setValueAt(round.getHole7Score(), 6, 2);
+        roundTable.setValueAt(round.getHole8Score(), 7, 2);
+        roundTable.setValueAt(round.getHole9Score(), 8, 2);
+        roundTable.setValueAt(round.getHole10Score(), 9, 2);
+        roundTable.setValueAt(round.getHole11Score(), 10, 2);
+        roundTable.setValueAt(round.getHole12Score(), 11, 2);
+        roundTable.setValueAt(round.getHole13Score(), 12, 2);
+        roundTable.setValueAt(round.getHole14Score(), 13, 2);
+        roundTable.setValueAt(round.getHole15Score(), 14, 2);
+        roundTable.setValueAt(round.getHole16Score(), 15, 2);
+        roundTable.setValueAt(round.getHole17Score(), 16, 2);
+        roundTable.setValueAt(round.getHole18Score(), 17, 2);
+        
+        roundTable.setValueAt(round.getHole1Difference(), 0, 3);
+        roundTable.setValueAt(round.getHole2Difference(), 1, 3);
+        roundTable.setValueAt(round.getHole3Difference(), 2, 3);
+        roundTable.setValueAt(round.getHole4Difference(), 3, 3);
+        roundTable.setValueAt(round.getHole5Difference(), 4, 3);
+        roundTable.setValueAt(round.getHole6Difference(), 5, 3);
+        roundTable.setValueAt(round.getHole7Difference(), 6, 3);
+        roundTable.setValueAt(round.getHole8Difference(), 7, 3);
+        roundTable.setValueAt(round.getHole9Difference(), 8, 3);
+        roundTable.setValueAt(round.getHole10Difference(), 9, 3);
+        roundTable.setValueAt(round.getHole11Difference(), 10, 3);
+        roundTable.setValueAt(round.getHole12Difference(), 11, 3);
+        roundTable.setValueAt(round.getHole13Difference(), 12, 3);
+        roundTable.setValueAt(round.getHole14Difference(), 13, 3);
+        roundTable.setValueAt(round.getHole15Difference(), 14, 3);
+        roundTable.setValueAt(round.getHole16Difference(), 15, 3);
+        roundTable.setValueAt(round.getHole17Difference(), 16, 3);
+        roundTable.setValueAt(round.getHole18Difference(), 17, 3);
+        
+        
     }
 
     /**
@@ -177,9 +247,128 @@ public class CreateUpdateDeleteScoreUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitAddActionPerformed
-        Round round = new Round();
+        Round round1 = new Round();
         
         //check for missing values and assign 0 if there is one
+        for(int i = 0; i<=17; i++) {
+            if(roundTable.getValueAt(i, 1)== null ) {
+                roundTable.setValueAt(0, i, 1);
+            }
+            if(roundTable.getValueAt(i, 2) == null) {
+                roundTable.setValueAt(0, i, 2);
+            }
+            
+        }
+        
+               
+        //would have loved to do this in a for loop
+        round1.setHole1Par((int) roundTable.getValueAt(0, 1));
+        round1.setHole2Par((int) roundTable.getValueAt(1, 1));
+        round1.setHole3Par((int) roundTable.getValueAt(2, 1));
+        round1.setHole4Par((int) roundTable.getValueAt(3, 1));
+        round1.setHole5Par((int) roundTable.getValueAt(4, 1));
+        round1.setHole6Par((int) roundTable.getValueAt(5, 1));
+        round1.setHole7Par((int) roundTable.getValueAt(6, 1));
+        round1.setHole8Par((int) roundTable.getValueAt(7, 1));
+        round1.setHole9Par((int) roundTable.getValueAt(8, 1));
+        round1.setHole10Par((int) roundTable.getValueAt(9, 1));
+        round1.setHole11Par((int) roundTable.getValueAt(10, 1));
+        round1.setHole12Par((int) roundTable.getValueAt(11, 1));
+        round1.setHole13Par((int) roundTable.getValueAt(12, 1));
+        round1.setHole14Par((int) roundTable.getValueAt(13, 1));
+        round1.setHole15Par((int) roundTable.getValueAt(14, 1));
+        round1.setHole16Par((int) roundTable.getValueAt(15, 1));
+        round1.setHole17Par((int) roundTable.getValueAt(16, 1));
+        round1.setHole18Par((int) roundTable.getValueAt(17, 1));
+        
+        round1.setHole1Score((int) roundTable.getValueAt(0, 2));
+        round1.setHole2Score((int) roundTable.getValueAt(1, 2));
+        round1.setHole3Score((int) roundTable.getValueAt(2, 2));
+        round1.setHole4Score((int) roundTable.getValueAt(3, 2));
+        round1.setHole5Score((int) roundTable.getValueAt(4, 2));
+        round1.setHole6Score((int) roundTable.getValueAt(5, 2));
+        round1.setHole7Score((int) roundTable.getValueAt(6, 2));
+        round1.setHole8Score((int) roundTable.getValueAt(7, 2));
+        round1.setHole9Score((int) roundTable.getValueAt(8, 2));
+        round1.setHole10Score((int) roundTable.getValueAt(9, 2));
+        round1.setHole11Score((int) roundTable.getValueAt(10, 2));
+        round1.setHole12Score((int) roundTable.getValueAt(11, 2));
+        round1.setHole13Score((int) roundTable.getValueAt(12, 2));
+        round1.setHole14Score((int) roundTable.getValueAt(13, 2));
+        round1.setHole15Score((int) roundTable.getValueAt(14, 2));
+        round1.setHole16Score((int) roundTable.getValueAt(15, 2));
+        round1.setHole17Score((int) roundTable.getValueAt(16, 2));
+        round1.setHole18Score((int) roundTable.getValueAt(17, 2));
+        
+        
+        round1.setHole1Difference(round1.getHole1Par() - round1.getHole1Score());
+        round1.setHole2Difference(round1.getHole2Par() - round1.getHole2Score());
+        round1.setHole3Difference(round1.getHole3Par() - round1.getHole3Score());
+        round1.setHole4Difference(round1.getHole4Par() - round1.getHole4Score());
+        round1.setHole5Difference(round1.getHole5Par() - round1.getHole5Score());
+        round1.setHole6Difference(round1.getHole6Par() - round1.getHole6Score());
+        round1.setHole7Difference(round1.getHole7Par() - round1.getHole7Score());
+        round1.setHole8Difference(round1.getHole8Par() - round1.getHole8Score());
+        round1.setHole9Difference(round1.getHole9Par() - round1.getHole9Score());
+        round1.setHole10Difference(round1.getHole10Par() - round1.getHole10Score());
+        round1.setHole11Difference(round1.getHole11Par() - round1.getHole11Score());
+        round1.setHole12Difference(round1.getHole12Par() - round1.getHole12Score());
+        round1.setHole13Difference(round1.getHole13Par() - round1.getHole13Score());
+        round1.setHole14Difference(round1.getHole14Par() - round1.getHole14Score());
+        round1.setHole15Difference(round1.getHole15Par() - round1.getHole15Score());
+        round1.setHole16Difference(round1.getHole16Par() - round1.getHole16Score());
+        round1.setHole17Difference(round1.getHole17Par() - round1.getHole17Score());
+        round1.setHole18Difference(round1.getHole18Par() - round1.getHole18Score());
+        
+        
+        
+        round1.setCourseName(enterCourseName.getText());
+        
+         
+        
+        boolean isValid = round1.validate();
+        
+        if(!isValid) {
+            JOptionPane.showMessageDialog(this,
+                    "A course name and all scores must be entered","Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+             
+        account.add(round1);
+        IAccountSvc impl = AccountSvcCacheImpl.getInstance();
+        account = impl.update(account);
+        if(account == null) {
+            JOptionPane.showMessageDialog(this, 
+                    "Your round was not saved, please try again", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+                       
+        JOptionPane.showMessageDialog(this, "Your new round has been saved");
+        
+        for(int i = 0;i<=17;i++) {
+            roundTable.setValueAt("", i, 1);
+            roundTable.setValueAt("", i, 2);
+        }
+        
+        
+        
+        this.setVisible(false);
+        MainScreenUI mainscreenUI = new MainScreenUI();
+        mainscreenUI.setAccount(account);
+        mainscreenUI.setVisible(true);
+       
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_submitAddActionPerformed
+
+    private void updateAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateAddActionPerformed
+              
+        
         for(int i = 0; i<=17; i++) {
             if(roundTable.getValueAt(i, 1)== null ) {
                 roundTable.setValueAt(0, i, 1);
@@ -265,16 +454,16 @@ public class CreateUpdateDeleteScoreUI extends javax.swing.JFrame {
             return;
         }
         
-        account.add(round);
+        account.update(round);
         IAccountSvc impl = AccountSvcCacheImpl.getInstance();
         account = impl.update(account);
         if(account == null) {
             JOptionPane.showMessageDialog(this, 
-                    "Your round was not saved, please try again", "Error",
+                    "Your round was not updated, please try again", "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
                        
-        JOptionPane.showMessageDialog(this, "Your new round has been saved");
+        JOptionPane.showMessageDialog(this, "Your round has been updated");
         
         for(int i = 0;i<=17;i++) {
             roundTable.setValueAt("", i, 1);
@@ -288,23 +477,25 @@ public class CreateUpdateDeleteScoreUI extends javax.swing.JFrame {
         
         
         
-        
-        
-    }//GEN-LAST:event_submitAddActionPerformed
-
-    private void updateAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateAddActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_updateAddActionPerformed
 
     private void deleteAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAddActionPerformed
-        // TODO add your handling code here:
+        int selectedOption = JOptionPane.showConfirmDialog(null, "Delete the selected row?", "Yes/No",JOptionPane.YES_NO_OPTION);
+        
+        if (selectedOption == JOptionPane.YES_OPTION) {
+            account.getRounds().remove(round);
+            this.setVisible(false);
+            MainScreenUI mainscreenUI = new MainScreenUI();
+            mainscreenUI.setAccount(account);
+            mainscreenUI.setVisible(true);
+        }
     }//GEN-LAST:event_deleteAddActionPerformed
 
     private void cancelAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelAddActionPerformed
         this.setVisible(false);
-        MainScreenUI mainscreenUI = 
-                    new MainScreenUI();
-            mainscreenUI.setVisible(true);
+        MainScreenUI mainscreenUI = new MainScreenUI();
+        mainscreenUI.setAccount(account);
+        mainscreenUI.setVisible(true);
     }//GEN-LAST:event_cancelAddActionPerformed
 
     /**

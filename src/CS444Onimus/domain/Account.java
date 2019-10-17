@@ -23,6 +23,15 @@ public class Account {
         return round;
     }
     
+    public Round update(Round round) {
+        
+        rounds.set(round.getId(), round);
+        return round;
+                
+    }
+    
+
+    
     
     public List<Round> getRounds() {
         return rounds;
