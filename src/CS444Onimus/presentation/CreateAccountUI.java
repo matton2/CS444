@@ -154,7 +154,9 @@ public class CreateAccountUI extends javax.swing.JFrame {
         login.setUsername(usernameCreate.getText());
         login.setPassword(new String(passwordCreate.getPassword()));
         if (!login.validate()) {
-            JOptionPane.showMessageDialog(this, "Must supply a username and password", "Error",
+            JOptionPane.showMessageDialog(this, "Must supply a username and password."
+                    + "First and last name must be longer than 1.  "
+                    + "Password must be a length of 6.", "Error",
                     JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -181,6 +183,7 @@ public class CreateAccountUI extends javax.swing.JFrame {
         if(!account.getEmail().contains("@")) {
             JOptionPane.showMessageDialog(this, "Email must contain @", "Error", 
                     JOptionPane.ERROR_MESSAGE);
+            return;
         }
         
         account.setLogin(login);

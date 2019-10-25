@@ -42,7 +42,6 @@ public class MainScreenUI extends javax.swing.JFrame {
         public void mouseClicked(java.awt.event.MouseEvent evt) {
             int row = roundsTbl.rowAtPoint(evt.getPoint());
             if (row >= 0) {
-                System.out.println("*** clicked row: " + row);
             selectedRow = row;
             CreateUpdateDeleteScoreUI createupdatedeletescoreui = 
                     new CreateUpdateDeleteScoreUI();
